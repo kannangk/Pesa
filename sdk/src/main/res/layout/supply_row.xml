@@ -1,0 +1,110 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:shimmer="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/supply_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:weightSum="4.5">
+
+        <TableRow
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight=".5"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/market_icon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:background="@drawable/white_border"
+                android:clickable="true"
+                android:gravity="center"
+                android:padding="5dp"
+                android:src="@drawable/ic_usdc" />
+
+
+        </TableRow>
+
+        <finance.pesa.sdk.utils.RoboticTextview
+            android:id="@+id/market_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/usdc"
+            android:paddingLeft="3dp"
+            android:textColor="@color/supply_header"
+            android:textSize="@dimen/very_small_medium_text" />
+
+        <finance.pesa.sdk.utils.RoboticTextview
+            android:id="@+id/apy_per"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.15"
+            android:gravity="left"
+            android:text="2.15%"
+            android:textColor="@color/supply_header"
+            android:textSize="@dimen/very_small_medium_text" />
+
+        <finance.pesa.sdk.utils.RoboticTextview
+            android:id="@+id/wallet_balance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.15"
+            android:gravity="left"
+            android:text="10000 USDC"
+            android:visibility="gone"
+            android:textColor="@color/supply_header"
+            android:textSize="@dimen/very_small_medium_text" />
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmer_wallet_balance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.15"
+            android:layout_gravity="center"
+            android:visibility="visible"
+            android:orientation="vertical"
+            shimmer:duration="800">
+
+            <!-- Adding 3 rows of placeholders -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:orientation="vertical">
+                <View
+                    android:layout_width="60dp"
+                    android:layout_height="@dimen/medium_text"
+                    android:background="@color/placeholder_bg" />
+            </LinearLayout>
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <Switch
+            android:id="@+id/switch_collateral"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.70"
+            android:gravity="left"
+            android:layout_gravity="center"
+            android:theme="@style/pesaSwitch" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:alpha="0.2"
+        android:background="@color/tab_unselect_text" />
+</LinearLayout>

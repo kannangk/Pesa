@@ -1,0 +1,44 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white_black"
+    android:layout_height="match_parent">
+    <finance.pesa.sdk.utils.RoboticMediumTextview
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/activites"
+        android:textColor="@color/header_white"
+        android:textSize="@dimen/very_large_text" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            app:tabMode="scrollable"
+            android:layout_marginTop="10dp"
+            app:tabIndicatorColor="@color/app_green"
+            app:tabSelectedTextColor="@color/app_green"
+            app:tabTextColor="@color/light_gray_white"
+            app:tabTextAppearance="@style/CustomTextAppearanceTab"
+            android:layout_height="wrap_content" >
+
+        </com.google.android.material.tabs.TabLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:alpha="0.5"
+        android:background="@color/light_gray_white" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

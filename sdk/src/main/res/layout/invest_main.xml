@@ -1,0 +1,880 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+    xmlns:shimmer="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/wallet_bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/wallet_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="50dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            android:weightSum="3">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <finance.pesa.sdk.utils.RoboticMediumTextview
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/supply_balance"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/app_green"
+                    android:textSize="@dimen/normal_text" />
+
+                <com.robinhood.ticker.TickerView
+                    android:id="@+id/supply_balance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:text="--"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/app_green"
+                    android:textSize="@dimen/small_text"
+                    app:ticker_animationDuration="1500" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <finance.pesa.sdk.utils.RoboticMediumTextview
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/apy_net"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/very_very_small_text" />
+
+                        <finance.pesa.sdk.utils.RoboticMediumTextview
+                            android:id="@+id/net_apy"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:gravity="center"
+                            android:text="0.00%"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/very_very_small_text" />
+
+
+                    </LinearLayout>
+
+                    <ProgressBar
+                        android:id="@+id/apy_pb"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:indeterminate="false"
+                        android:max="100"
+                        android:progress="0"
+                        android:progressDrawable="@drawable/custom_progress" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <finance.pesa.sdk.utils.RoboticMediumTextview
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/borrow_balance"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/borrow_balance"
+                    android:textSize="@dimen/normal_text" />
+
+                <com.robinhood.ticker.TickerView
+                    android:id="@+id/borrow_balance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:text="--"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/borrow_balance"
+                    android:textSize="@dimen/small_text"
+                    app:ticker_animationDuration="1500" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            android:weightSum="3">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <finance.pesa.sdk.utils.RoboticMediumTextview
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/borrow_limit"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/small_text" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ProgressBar
+                    android:id="@+id/borrow_progress_bar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center_horizontal"
+                    android:max="100"
+                    android:progress="0"
+                    android:progressDrawable="@drawable/progrss_orange" />
+                <!--android:progressDrawable="@drawable/borrow_limit_pb"/>-->
+                <finance.pesa.sdk.utils.RoboticMediumTextview
+                    android:id="@+id/used_borrow_limit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:gravity="center"
+                    android:text="0%"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/very_small_text" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <finance.pesa.sdk.utils.RoboticMediumTextview
+                    android:id="@+id/borrow_limit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="$0.0000"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/small_text" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/wallet_details"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="-40dp"
+        android:layout_marginRight="10dp"
+        android:orientation="vertical">
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/invest_wallet_bg"
+                android:padding="15dp"
+                android:weightSum="5.5">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:src="@drawable/ic_app_icon" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="5dp"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <finance.pesa.sdk.utils.RoboticMediumTextview
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:gravity="center"
+                            android:text="@string/earned_pesa"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@color/light_gray_white"
+                            android:textSize="@dimen/small_text" />
+
+                        <finance.pesa.sdk.utils.RoboticMediumTextview
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="--"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@color/app_green"
+                            android:textSize="@dimen/very_very_small_text" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:src="@drawable/ic_app_icon_s" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="5dp"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <finance.pesa.sdk.utils.RoboticMediumTextview
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:gravity="center"
+                            android:text="@string/earned_spesa"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@color/light_gray_white"
+                            android:textSize="@dimen/small_text" />
+
+                        <finance.pesa.sdk.utils.RoboticMediumTextview
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="--"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@color/app_green"
+                            android:textSize="@dimen/very_very_small_text" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1.5"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <finance.pesa.sdk.utils.RoboticMediumTextview
+                        android:id="@+id/btn_claim"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/clain_btn"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="@string/claim"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/app_green"
+                        android:textSize="@dimen/small_text" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/invest_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/pending_transaction_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selected_green_bg"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <finance.pesa.sdk.utils.RoboticTextview
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:padding="5dp"
+                            android:text="@string/pending_transactions"
+                            android:textColor="@color/light_gray_white"
+                            android:textSize="@dimen/small_text" />
+                        <com.lsjwzh.widget.materialloadingprogressbar.CircleProgressBar
+                            android:id="@+id/pending_trans_pb"
+                            app:mlpb_show_arrow="true"
+                            app:mlpb_arrow_height="3dp"
+                            app:mlpb_arrow_width="5dp"
+                            app:mlpb_progress_stoke_width="1dp"
+                            app:mlpb_background_color="@color/sky_blue"
+                            app:mlpb_progress_text_visibility="invisible"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"/>
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:alpha="0.2"
+                        android:background="@color/tab_unselect_text" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="5dp">
+
+
+                        <finance.pesa.sdk.utils.RoboticMediumTextview
+                            android:id="@+id/pending_transaction_msg"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="5dp"
+                            android:layout_marginLeft="10dp"
+                            android:gravity="left"
+                            android:text="@string/pending_transactions"
+                            android:textColor="@color/light_gray_white"
+                            android:textSize="@dimen/small_text" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/selected_green_bg"
+                    android:orientation="horizontal"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:paddingRight="10dp">
+
+                        <LinearLayout
+                            android:id="@+id/supply_tab"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:gravity="end"
+                            android:orientation="vertical">
+
+                            <finance.pesa.sdk.utils.RoboticTextview
+                                android:id="@+id/supply_txt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/supplied"
+                                android:textColor="@color/tab_select_text"
+                                android:textSize="@dimen/normal_text" />
+
+                            <View
+                                android:id="@+id/supply_div"
+                                android:layout_width="30dp"
+                                android:layout_height="2dp"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="5dp"
+                                android:background="@color/app_green" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:paddingLeft="10dp">
+
+                        <LinearLayout
+                            android:id="@+id/borrow_tab"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <finance.pesa.sdk.utils.RoboticTextview
+                                android:id="@+id/borrow_txt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/borrowed"
+                                android:textColor="@color/tab_unselect_text"
+                                android:textSize="@dimen/normal_text" />
+
+                            <View
+                                android:id="@+id/borrow_div"
+                                android:layout_width="30dp"
+                                android:layout_height="2dp"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="5dp"
+                                android:background="@color/app_green"
+                                android:visibility="gone" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/supplied_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/wallet_selected_green"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingLeft="5dp"
+                        android:paddingTop="5dp"
+                        android:paddingRight="5dp"
+                        android:weightSum="4.5">
+
+                        <finance.pesa.sdk.utils.RoboticTextview
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.5"
+                            android:gravity="left"
+                            android:paddingLeft="5dp"
+                            android:text="@string/asset"
+                            android:textColor="@color/supply_header"
+                            android:textSize="@dimen/very_small_medium_text" />
+
+
+                        <finance.pesa.sdk.utils.RoboticTextview
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.15"
+                            android:gravity="left"
+                            android:text="@string/apy_earned"
+                            android:textColor="@color/supply_header"
+                            android:textSize="@dimen/very_small_medium_text" />
+
+                        <finance.pesa.sdk.utils.RoboticTextview
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.15"
+                            android:gravity="left"
+                            android:text="@string/balance"
+                            android:textColor="@color/supply_header"
+                            android:textSize="@dimen/very_small_medium_text" />
+
+                        <finance.pesa.sdk.utils.RoboticTextview
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.70"
+                            android:gravity="left"
+                            android:text="@string/collateral"
+                            android:textColor="@color/supply_header"
+                            android:textSize="@dimen/very_small_medium_text" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:alpha="0.2"
+                        android:background="@color/tab_unselect_text" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/supplied_recycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/borrowed_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/wallet_selected_green"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingLeft="5dp"
+                        android:paddingTop="5dp"
+                        android:paddingRight="5dp"
+                        android:weightSum="4.5">
+
+                        <finance.pesa.sdk.utils.RoboticTextview
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.5"
+                            android:gravity="left"
+                            android:paddingLeft="5dp"
+                            android:text="@string/asset"
+                            android:textColor="@color/supply_header"
+                            android:textSize="@dimen/very_small_medium_text" />
+
+
+                        <finance.pesa.sdk.utils.RoboticTextview
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.15"
+                            android:gravity="left"
+                            android:text="@string/apy_accrued"
+                            android:textColor="@color/supply_header"
+                            android:textSize="@dimen/very_small_medium_text" />
+
+                        <finance.pesa.sdk.utils.RoboticTextview
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.15"
+                            android:gravity="left"
+                            android:text="@string/balance"
+                            android:textColor="@color/supply_header"
+                            android:textSize="@dimen/very_small_medium_text" />
+
+                        <finance.pesa.sdk.utils.RoboticTextview
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.70"
+                            android:gravity="left"
+                            android:text="@string/per_limit"
+                            android:textColor="@color/supply_header"
+                            android:textSize="@dimen/very_small_medium_text" />
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:alpha="0.2"
+                        android:background="@color/tab_unselect_text" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/borrowed_recycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/supply_page"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="visible">
+
+
+                        <LinearLayout
+                            android:id="@+id/supply_lay"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="visible"
+                            android:weightSum="4.5">
+
+                            <finance.pesa.sdk.utils.RoboticMediumTextview
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="left"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:text="@string/all_markets"
+                                android:textColor="@color/light_gray_white"
+                                android:textSize="@dimen/small_text" />
+
+
+                            <LinearLayout
+                                android:id="@+id/supply_all_markets"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/invest_wallet_bg"
+                                android:layout_marginBottom="5dp"
+                                android:orientation="vertical">
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:paddingLeft="5dp"
+                                    android:paddingTop="10dp"
+                                    android:paddingRight="5dp"
+                                    android:weightSum="4.5">
+
+                                    <finance.pesa.sdk.utils.RoboticTextview
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1.5"
+                                        android:gravity="left"
+                                        android:paddingLeft="5dp"
+                                        android:text="@string/asset"
+                                        android:textColor="@color/supply_header"
+                                        android:textSize="@dimen/very_small_medium_text" />
+
+
+
+                                    <finance.pesa.sdk.utils.RoboticTextview
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1.15"
+                                        android:gravity="left"
+                                        android:text="@string/apy"
+                                        android:textColor="@color/supply_header"
+                                        android:textSize="@dimen/very_small_medium_text" />
+
+                                    <finance.pesa.sdk.utils.RoboticTextview
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1.15"
+                                        android:gravity="left"
+                                        android:text="@string/wallet"
+                                        android:textColor="@color/supply_header"
+                                        android:textSize="@dimen/very_small_medium_text" />
+
+                                    <finance.pesa.sdk.utils.RoboticTextview
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="0.70"
+                                        android:gravity="left"
+                                        android:text="@string/collateral"
+                                        android:textColor="@color/supply_header"
+                                        android:textSize="@dimen/very_small_medium_text" />
+                                </LinearLayout>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginBottom="5dp"
+                                    android:alpha="0.2"
+                                    android:background="@color/tab_unselect_text" />
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/supply_recycler"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/borrow_page"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+
+                        <LinearLayout
+                            android:id="@+id/borrow_lay"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="visible">
+
+                            <finance.pesa.sdk.utils.RoboticMediumTextview
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="left"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:text="@string/all_markets"
+                                android:textColor="@color/light_gray_white"
+                                android:textSize="@dimen/small_text" />
+
+
+                            <LinearLayout
+                                android:id="@+id/borrow_all_markets"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="5dp"
+                                android:background="@drawable/invest_wallet_bg"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:paddingLeft="5dp"
+                                    android:paddingTop="10dp"
+                                    android:paddingRight="5dp"
+                                    android:weightSum="4.5">
+
+                                    <finance.pesa.sdk.utils.RoboticTextview
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1.5"
+                                        android:gravity="left"
+                                        android:paddingLeft="5dp"
+                                        android:text="@string/asset"
+                                        android:textColor="@color/supply_header"
+                                        android:textSize="@dimen/very_small_medium_text" />
+
+
+                                    <finance.pesa.sdk.utils.RoboticTextview
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1.15"
+                                        android:gravity="left"
+                                        android:text="@string/apy"
+                                        android:textColor="@color/supply_header"
+                                        android:textSize="@dimen/very_small_medium_text" />
+
+                                    <finance.pesa.sdk.utils.RoboticTextview
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1.15"
+                                        android:gravity="left"
+                                        android:text="@string/wallet"
+                                        android:textColor="@color/supply_header"
+                                        android:textSize="@dimen/very_small_medium_text" />
+
+                                    <finance.pesa.sdk.utils.RoboticTextview
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="0.70"
+                                        android:gravity="left"
+                                        android:text="@string/liquidity"
+                                        android:textColor="@color/supply_header"
+                                        android:textSize="@dimen/very_small_medium_text" />
+                                </LinearLayout>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginBottom="5dp"
+                                    android:alpha="0.2"
+                                    android:background="@color/tab_unselect_text" />
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/borrow_recycler"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+
+</RelativeLayout>

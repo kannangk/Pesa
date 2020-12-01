@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:shimmer="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/wallet_bg"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/wallet_details"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:background="@color/app_green"
+        android:padding="20dp"
+        android:layout_height="wrap_content">
+
+        <finance.pesa.sdk.utils.RoboticMediumTextview
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:visibility="gone"
+            android:text="charley.mypesa.xyz"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/white"
+            android:textSize="@dimen/small_large_text" />
+
+        <finance.pesa.sdk.utils.RoboticMediumTextview
+            android:id="@+id/epn_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="EPN : "
+            android:visibility="gone"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/white"
+            android:textSize="@dimen/small_text" />
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmer_total_wallet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:paddingBottom="10dp"
+            android:visibility="visible"
+            android:orientation="vertical"
+            shimmer:duration="800">
+
+            <!-- Adding 3 rows of placeholders -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <View
+                    android:layout_width="100dp"
+                    android:layout_height="@dimen/very_large_text"
+                    android:background="@color/placeholder_bg" />
+            </LinearLayout>
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <finance.pesa.sdk.utils.RoboticBoldTextview
+            android:id="@+id/total_wallet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="--"
+            android:visibility="gone"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/white"
+            android:paddingBottom="10dp"
+            android:textSize="@dimen/very_large_text" />
+
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/wallet_details"
+        android:layout_marginTop="-40dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:visibility="gone"
+        app:cardPreventCornerOverlap="false"
+        android:outlineAmbientShadowColor="@color/card_border"
+        android:outlineSpotShadowColor="@color/card_border"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="@dimen/cardview_default_elevation">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:weightSum="4"
+            android:background="@color/white_black"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/epn_view"
+                android:layout_width="0dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:visibility="gone"
+                android:clickable="true"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:background="@drawable/swipe_btn_clickable"
+                    android:gravity="center"
+                    android:src="@drawable/ic_arrow_up_right" />
+
+                <finance.pesa.sdk.utils.RoboticMediumTextview
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:text="@string/epn"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/light_gray_white"
+                    android:textSize="@dimen/very_small_text" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/mint_view"
+                android:layout_width="0dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:visibility="gone"
+                android:clickable="true"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:background="@drawable/swipe_btn_clickable"
+                    android:gravity="center"
+                    android:src="@drawable/ic_arrow_up_right" />
+
+                <finance.pesa.sdk.utils.RoboticMediumTextview
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:text="@string/mint"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/light_gray_white"
+                    android:textSize="@dimen/very_small_text" />
+
+            </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/deposit_view"
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:clickable="true"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:background="@drawable/swipe_btn_clickable"
+                android:gravity="center"
+                android:src="@drawable/ic_plus_deposit" />
+
+            <finance.pesa.sdk.utils.RoboticMediumTextview
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text="@string/deposit"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/light_gray_white"
+                android:textSize="@dimen/very_small_text" />
+
+        </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/send_view"
+                android:layout_width="0dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:clickable="true"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:background="@drawable/swipe_btn_clickable"
+                    android:gravity="center"
+                    android:src="@drawable/ic_arrow_up_right" />
+
+                <finance.pesa.sdk.utils.RoboticMediumTextview
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:text="@string/send"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/light_gray_white"
+                    android:textSize="@dimen/very_small_text" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/receive_view"
+                android:layout_width="0dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:clickable="true"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:background="@drawable/swipe_btn_clickable"
+                    android:gravity="center"
+                    android:src="@drawable/ic_arrow_down_left" />
+
+                <finance.pesa.sdk.utils.RoboticMediumTextview
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:text="@string/receive"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/light_gray_white"
+                    android:textSize="@dimen/very_small_text" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/exchange_view"
+                android:layout_width="0dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:clickable="true"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:background="@drawable/swipe_btn_clickable"
+                    android:gravity="center"
+                    android:src="@drawable/ic_exchange_circle" />
+
+                <finance.pesa.sdk.utils.RoboticMediumTextview
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:text="@string/exchange"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/light_gray_white"
+                    android:textSize="@dimen/very_small_text" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/token_details"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/card_view"
+        android:layout_margin="10dp"
+        app:cardPreventCornerOverlap="false"
+        app:cardCornerRadius="10dp"
+        android:outlineAmbientShadowColor="@color/card_border"
+        android:outlineSpotShadowColor="@color/card_border"
+        app:cardElevation="@dimen/cardview_default_elevation"
+        app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:background="@color/white_black"
+        android:orientation="vertical"
+        >
+
+        <finance.pesa.sdk.utils.RoboticMediumTextview
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:text="@string/assets"
+            android:textColor="@color/light_gray_white"
+            android:textSize="@dimen/medium_text" />
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmer_view_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            shimmer:duration="800">
+
+            <!-- Adding 3 rows of placeholders -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include layout="@layout/placeholder_listrow" />
+                <include layout="@layout/placeholder_listrow" />
+                <include layout="@layout/placeholder_listrow" />
+                <include layout="@layout/placeholder_listrow" />
+                <include layout="@layout/placeholder_listrow" />
+                <include layout="@layout/placeholder_listrow" />
+
+            </LinearLayout>
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/wallet_recycler"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

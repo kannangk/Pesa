@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white_black"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/dialpad"
+        android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="50dp"
+        android:src="@drawable/ic_splash_logo"
+        android:tint="@color/app_green"/>
+
+
+    <com.mukesh.OtpView
+        android:id="@+id/lock_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberPassword"
+        android:layout_gravity="center"
+        android:textColorHint="@color/transparent"
+        android:cursorVisible="false"
+        style="@style/Otp_view"
+        android:itemBackground="@drawable/launch_pwd_bg"
+        android:textColor="@color/app_green"
+        app:hideLineWhenFilled="true"
+        app:itemCount="6"
+        app:itemSpacing="8dp"
+        android:enabled="false"
+        android:clickable="false"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="20dp"
+        app:itemHeight="40dp"
+        app:itemWidth="35dp"
+        app:itemRadius="10dp"
+        app:lineWidth="1dp"
+        android:textSize="@dimen/medium_large_text"
+        app:lineColor="@drawable/lock_item_state"
+        app:state_filled="true"
+        app:viewType="rectangle" />
+    </LinearLayout>
+
+    <include
+        android:id="@+id/dialpad"
+        layout="@layout/dial_pad_lock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>

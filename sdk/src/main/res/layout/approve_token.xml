@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@color/alert_bg"
+        android:orientation="vertical"
+        card_view:cardBackgroundColor="@color/alert_bg"
+        card_view:cardCornerRadius="20dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="20dp"
+            android:background="@color/white_light_gray"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <finance.pesa.sdk.utils.RoboticMediumTextview
+                    android:id="@+id/approve_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center"
+                    android:text="@string/select_currency"
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:textColor="@color/header_white"
+                    android:textSize="@dimen/large_text"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/iv_currency"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/white_circle_bg"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:src="@drawable/ic_ethereum" />
+
+                <finance.pesa.sdk.utils.RoboticTextview
+                    android:id="@+id/tv_msg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="gas"
+                    android:layout_alignParentEnd="true"
+                    android:textColor="@color/light_gray_white"
+                    android:textSize="@dimen/normal_text" />
+
+                <finance.pesa.sdk.utils.RoboticTextview
+                    android:id="@+id/tv_gas_fee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center"
+                    android:text="gas"
+                    android:layout_alignParentEnd="true"
+                    android:textColor="@color/black_white"
+                    android:textSize="@dimen/small_text" />
+
+
+                <finance.pesa.sdk.utils.RoboticTextview
+                    android:id="@+id/why_gas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_gravity="center"
+                    android:text="@string/why_gas"
+                    android:layout_alignParentEnd="true"
+                    android:textColor="@color/app_green"
+                    android:textSize="@dimen/small_text" />
+
+                <finance.pesa.sdk.utils.RoboticButton
+                    android:id="@+id/btn_approve"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/btn_green_curve_selector"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:layout_marginBottom="20dp"
+                    android:linksClickable="false"
+                    android:text="@string/approve"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/medium_text" />
+            </LinearLayout>
+
+
+
+
+            <ImageView
+                android:id="@+id/iv_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/ic_close_popup"
+                android:tint="@color/light_gray_white" />
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

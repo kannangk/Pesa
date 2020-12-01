@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@color/alert_bg"
+        android:orientation="vertical"
+        card_view:cardBackgroundColor="@color/alert_bg"
+        card_view:cardCornerRadius="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/white_grey"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <finance.pesa.sdk.utils.RoboticTextview
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Confirming EPN"
+                android:textSize="@dimen/normal_text"
+                android:textColor="@color/light_gray_white" />
+
+            <ProgressBar
+                android:layout_width="60dp"
+                android:layout_margin="20dp"
+                android:layout_gravity="center"
+                android:indeterminateDrawable="@drawable/progress"
+                android:layout_height="60dp" />
+
+            <finance.pesa.sdk.utils.RoboticTextview
+                android:id="@+id/msg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingTop="5dp"
+                android:textSize="@dimen/very_small_medium_text"
+                android:text="@string/transaction_processing"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textColor="@color/light_gray_white" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

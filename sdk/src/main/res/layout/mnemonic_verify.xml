@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white_black"
+    android:clickable="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_circle_back_arrow" />
+
+        <ImageView
+            android:id="@+id/iv_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/ic_back" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/footer">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:orientation="vertical">
+
+
+                <finance.pesa.sdk.utils.RoboticMediumTextview
+                    android:id="@+id/textView_top_bar_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:text="@string/verify_account_key"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/header_white"
+                    android:textSize="@dimen/extra_large_text"
+                    android:textStyle="bold" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/mnemonic_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp" />
+
+                <finance.pesa.sdk.utils.RoboticTextview
+                    android:id="@+id/count_mnemonic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="10dp"
+                    android:gravity="start"
+                    android:text= "@string/verify_account_key_msg"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/light_gray_white"
+                    android:textSize="@dimen/normal_text" />
+
+                <com.greenfrvr.hashtagview.HashtagView
+                    android:id="@+id/hashtag_shuffle_phrase"
+                    style="@style/HashtagView"
+                    android:layout_gravity="center"
+                    app:rowDistribution="random"
+                    app:rowGravity="center"
+                    app:rowMargin="5dp"
+                    android:padding="10dp"
+                    app:selectionMode="true"
+                    app:tagBackground="@drawable/select_mnemonic_bg"
+                    app:tagDrawablePadding="4dp"
+                    app:tagMargin="5dp"
+                    app:tagPaddingBottom="@dimen/very_very_small_text"
+                    app:tagPaddingLeft="@dimen/very_very_small_text"
+                    app:tagPaddingRight="@dimen/very_very_small_text"
+                    app:tagPaddingTop="@dimen/very_very_small_text"
+                    app:tagTextColor="@color/app_green" />
+
+
+                <finance.pesa.sdk.utils.RoboticMediumTextview
+                    android:id="@+id/error_message"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:text="@string/verify_account_key_error"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/error_color"
+                    android:textSize="@dimen/normal_text"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <LinearLayout
+            android:id="@+id/footer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <finance.pesa.sdk.utils.RoboticButton
+                android:id="@+id/btn_confirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_green_curve_selector"
+                android:enabled="false"
+                android:text="@string/confirm"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/medium_text" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_black"
+    android:clickable="true"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_circle_back_arrow" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <finance.pesa.sdk.utils.RoboticMediumTextview
+                    android:id="@+id/textView_top_bar_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/create_passcode"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/header_white"
+                    android:textSize="@dimen/extra_large_text"
+                    android:textStyle="bold" />
+
+                <finance.pesa.sdk.utils.RoboticTextview
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:alpha="0.8"
+                    android:text="@string/almost_done_msg"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/light_gray_white"
+                    android:textSize="@dimen/small_text" />
+
+
+
+            </LinearLayout>
+
+
+            <com.mukesh.OtpView
+                android:id="@+id/pwd_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberPassword"
+                android:layout_gravity="center"
+                android:textColorHint="@color/transparent"
+                android:cursorVisible="false"
+                style="@style/Otp_view"
+                android:itemBackground="@drawable/launch_pwd_bg"
+                android:textColor="@color/app_green"
+                app:hideLineWhenFilled="true"
+                app:itemCount="6"
+                app:itemSpacing="8dp"
+                android:layout_marginTop="50dp"
+                app:itemHeight="40dp"
+                app:itemWidth="35dp"
+                app:itemRadius="10dp"
+                app:lineWidth="1dp"
+                android:textSize="@dimen/medium_large_text"
+                app:lineColor="@drawable/lock_item_state"
+                app:state_filled="true"
+                app:viewType="rectangle" />
+
+
+            <finance.pesa.sdk.utils.RoboticTextview
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:gravity="center"
+                android:alpha="0.8"
+                android:text="@string/almost_done_msg_1"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/light_gray_white"
+                android:textSize="@dimen/small_text" />
+
+            <com.mukesh.OtpView
+                android:id="@+id/cfm_pwd_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberPassword"
+                android:layout_gravity="center"
+                android:textColorHint="@color/transparent"
+                android:cursorVisible="false"
+                style="@style/Otp_view"
+                android:itemBackground="@drawable/launch_pwd_bg"
+                android:textColor="@color/app_green"
+                app:hideLineWhenFilled="true"
+                app:itemCount="6"
+                app:itemSpacing="8dp"
+                android:hint="-"
+                app:itemHeight="40dp"
+                app:itemWidth="35dp"
+                app:itemRadius="10dp"
+                app:lineWidth="1dp"
+                android:textSize="@dimen/medium_large_text"
+                app:lineColor="@drawable/lock_item_state"
+                app:state_filled="true"
+                app:viewType="rectangle" />
+
+            <finance.pesa.sdk.utils.RoboticMediumTextview
+                android:id="@+id/error_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:padding="20dp"
+                android:visibility="gone"
+                android:text="@string/pwd_not_match"
+                android:textSize="@dimen/medium_text"
+                android:textStyle="bold"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/error_color" />
+
+
+            <finance.pesa.sdk.utils.RoboticButton
+                android:id="@+id/btn_continue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_green_curve_selector"
+                android:text="@string/continue_val"
+                android:layout_marginTop="50dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginBottom="10dp"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/medium_text" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

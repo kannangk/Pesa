@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_black"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_circle_back_arrow" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <finance.pesa.sdk.utils.RoboticMediumTextview
+                    android:id="@+id/textView_top_bar_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/get_started"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/header_white"
+                    android:textSize="@dimen/extra_large_text"
+                    android:textStyle="bold" />
+
+                <finance.pesa.sdk.utils.RoboticTextview
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:alpha="0.7"
+                    android:text="@string/get_started_msg"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/light_gray_white"
+                    android:textSize="@dimen/small_text" />
+
+                <finance.pesa.sdk.utils.RoboticMediumTextview
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:gravity="center"
+                    android:text="@string/enter_ur_number"
+                    android:alpha="0.8"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/light_gray_white"
+                    android:textSize="@dimen/small_text" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/verify_via_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:background="@color/white_black"
+                android:orientation="vertical"
+                android:paddingBottom="10dp">
+
+
+
+                        <LinearLayout
+                            android:id="@+id/ph_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginRight="30dp"
+                            android:gravity="center"
+                            android:orientation="horizontal" >
+
+                            <com.hbb20.CountryCodePicker
+                                android:id="@+id/ccp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:textAppearance="?android:textAppearanceSmall"
+                                app:ccp_arrowSize="@dimen/large_text"
+                                app:ccpDialog_keyboardAutoPopup="false"
+                                app:ccp_contentColor="@color/app_green"
+                                app:ccp_defaultNameCode="us"
+                                app:ccp_showFullName="false"
+                                app:ccp_showFlag="false"
+                                app:ccp_defaultPhoneCode="@color/app_green"
+                                app:ccp_showNameCode="false"
+                                app:ccp_textSize="@dimen/small_large_text" />
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/phone_number"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:hint="Number"
+                                android:imeOptions="actionDone"
+                                android:inputType="phone"
+                                android:background="@color/transparent"
+                                android:padding="10dp"
+                                android:singleLine="true"
+                                android:lines="1"
+                                android:textCursorDrawable="@drawable/green_cursor"
+                                android:textAppearance="?android:textAppearanceSmall"
+                                android:textColor="@color/app_green"
+                                android:textColorHint="@color/light_grey"
+                                android:textSize="@dimen/small_large_text">
+
+                                <requestFocus />
+                            </com.google.android.material.textfield.TextInputEditText>
+                        </LinearLayout>
+
+                <View
+                    android:id="@+id/line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:alpha="0.5"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@color/light_gray_white"/>
+
+
+
+                <finance.pesa.sdk.utils.RoboticTextview
+                    android:id="@+id/error_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/cal_red"
+                    android:textSize="@dimen/normal_text"
+                    android:visibility="gone" />
+
+
+                <finance.pesa.sdk.utils.RoboticTextview
+                    android:id="@+id/receive_msg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:gravity="center"
+                    android:alpha="0.8"
+                    android:text="@string/enter_phone_msg"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/light_gray_white"
+                    android:textSize="@dimen/small_text" />
+
+
+            </LinearLayout>
+
+                <finance.pesa.sdk.utils.RoboticButton
+                    android:id="@+id/send_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:text="@string/send_code"
+                    android:background="@drawable/btn_green_curve_selector"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:textAllCaps="false"
+                    android:layout_marginTop="50dp"
+                    android:padding="5dp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/medium_text" />
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

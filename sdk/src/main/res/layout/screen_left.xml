@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="5dp"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/iv_user_icon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/ic_avatar"
+        app:civ_border_width="0dp"
+        android:layout_marginLeft="10dp"
+        app:civ_border_color="@color/transparent"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/ic_bubble_receive"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:layout_marginRight="80dp"
+        android:layout_marginLeft="5dp"
+        android:minWidth="200dp"
+        android:padding="10dp">
+
+
+        <finance.pesa.sdk.utils.RoboticTextview
+            android:id="@+id/message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="sdfxdv"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:drawableTint="@color/white"
+            android:textColor="@color/white"
+            android:textSize="@dimen/medium_text" />
+        <finance.pesa.sdk.utils.RoboticTextview
+            android:id="@+id/iv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="bottom"
+            android:text="03:50 am"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:gravity="bottom"
+            android:alpha="0.7"
+            android:textColor="@color/white"
+            android:textSize="@dimen/small_text" />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

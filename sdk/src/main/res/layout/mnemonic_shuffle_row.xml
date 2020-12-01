@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:padding="5dp"
+    android:background="@color/wallet_bg"
+    android:layout_height="wrap_content">
+
+    <finance.pesa.sdk.utils.RoboticTextview
+        android:id="@+id/iv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:padding="5dp"
+        android:gravity="center"
+        android:textSize="@dimen/normal_text"
+        android:background="@drawable/select_mnemonic_bg"
+        android:text="1"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/app_green" />
+
+</LinearLayout>

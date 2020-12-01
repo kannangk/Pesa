@@ -1,0 +1,200 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'org.sonarqube'
+
+def apikeyPropertiesFile = rootProject.file("config/dev.properties")
+def apikeyProperties = new Properties()
+apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
+        exclude("META-INF/*.kotlin_module")
+    }
+
+    defaultConfig {
+        minSdkVersion 24
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+        buildConfigField("String", "BASE_URL", apikeyProperties['BASE_URL'])
+        buildConfigField("String", "TOKEN_SERVER_URL", apikeyProperties['TOKEN_SERVER_URL'])
+        buildConfigField("String", "X_Authy_API_Key", apikeyProperties['X_Authy_API_Key'])
+        buildConfigField("String", "PARSE_APP_IDS", apikeyProperties['PARSE_APP_IDS'])
+        buildConfigField("String", "PARSE_CLIENT_KEY", apikeyProperties['PARSE_CLIENT_KEY'])
+        buildConfigField("String", "PARSE_SERVER_KEY", apikeyProperties['PARSE_SERVER_KEY'])
+        buildConfigField("String", "SEGMENT_TOKEN", apikeyProperties['SEGMENT_TOKEN'])
+        buildConfigField("String", "PACKAGE_NAME", apikeyProperties['PACKAGE_NAME'])
+        buildConfigField("String", "BUILD_BASE", apikeyProperties['BUILD_BASE'])
+        buildConfigField("String", "pControllerAddress", apikeyProperties['pControllerAddress'])
+        buildConfigField("String", "EPNAddress", apikeyProperties['EPNAddress'])
+        buildConfigField("String", "PAYMENT_Address", apikeyProperties['PAYMENT_Address'])
+        buildConfigField("String", "allowanceBalanceLimit", apikeyProperties['allowanceBalanceLimit'])
+        buildConfigField("String", "kovan_url", apikeyProperties['kovan_url'])
+        buildConfigField("String", "kovan_transaction_url", apikeyProperties['kovan_transaction_url'])
+        buildConfigField("String", "FIREBASE_APP_ID", apikeyProperties['FIREBASE_APP_ID'])
+        buildConfigField("String", "FIREBASE_PROJECT_ID", apikeyProperties['FIREBASE_PROJECT_ID'])
+        buildConfigField("String", "GOOGLE_API_KEY", apikeyProperties['GOOGLE_API_KEY'])
+        buildConfigField("String", "FIREBASE_APP_NAME", apikeyProperties['FIREBASE_APP_NAME'])
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+}
+sonarqube {
+    properties {
+        def libraries = project.android.sdkDirectory.getPath() + "/platforms/android-23/android.jar"
+/* + ", build/intermediates/exploded-aar*//**//*classes.jar"*/
+        property "sonar.sources", "src/main/java"
+        property "sonar.binaries", "build/intermediates/classes/debug"
+        property "sonar.libraries", libraries
+        property "sonar.tests", "src/test/java, src/androidTest/java"
+        property "sonar.java.test.binaries", "build/intermediates/class/debug"
+        property "sonar.java.test.libraries", libraries
+        property "sonar.jacoco.reportPath", "build/jacoco/testDebugUnitTest.exec"
+        property "sonar.java.coveragePlugin", "jacoco"
+        property "sonar.junit.reportsPath", "build/test-results/debug"
+        property "sonar.android.lint.report", "build/outputs/lint-results"
+    }
+
+}
+
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == "androidx") {
+            if (!requested.name.startsWith("multidex")) {
+                details.useVersion "${targetSdk}.+"
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.core:core-ktx:1.3.1'
+    testImplementation 'junit:junit:4.13'
+    implementation project(':ViewPagerIndicator')
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation 'com.android.support:cardview-v7:29.0.0-rc1'
+    implementation 'com.hbb20:ccp:2.4.0'
+    implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
+    implementation "androidx.cardview:cardview:$cardViewVersion"
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+    implementation "androidx.preference:preference-ktx:1.1.1"
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+    implementation 'commons-codec:commons-codec:1.11'
+    // Google Pay
+    implementation 'com.google.android.gms:play-services-auth:18.1.0'
+    implementation 'com.google.android.gms:play-services-wallet:18.1.0'
+    implementation 'com.google.android.gms:play-services-gcm:17.0.0'
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.squareup.retrofit2:converter-gson:2.7.0'
+    //Okhttp3
+    implementation 'com.squareup.okhttp3:okhttp:4.3.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.3.0'
+    // Dagger 2
+    implementation "com.google.dagger:dagger:$dagger2_version"
+    //kapt "com.google.dagger:dagger-compiler:$dagger2_version"
+    compileOnly "org.glassfish:javax.annotation:3.1.1"
+    //Pagination
+    implementation 'ru.alexbykov:nopaginate:0.9.9'
+    // Shimmer
+    implementation 'com.facebook.shimmer:shimmer:0.1.0@aar'
+    // Material Design
+    implementation 'com.google.android.material:material:1.2.1'
+
+    // Parse
+    implementation 'com.parse.bolts:bolts-tasks:1.4.0'
+    implementation 'com.github.parse-community.Parse-SDK-Android:parse:1.22.1'
+    // Parse Live query
+    implementation 'com.github.parse-community:ParseLiveQuery-Android:1.1.0'
+
+    //OTP Enter
+    implementation 'com.github.mukeshsolanki:android-otpview-pinview:2.0.3'
+
+    //web3j
+    implementation 'org.web3j:core:4.6.0-android'
+    implementation 'org.web3j:contracts:4.6.0-android'
+    implementation 'org.web3j:infura:3.3.1-android'
+
+    // Stripe Android SDK
+    implementation 'com.stripe:stripe-android:12.4.0'
+
+    implementation project(':swipe-reveal-layout')
+    //circle view
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    //phone number format
+    implementation 'com.googlecode.libphonenumber:libphonenumber:8.9.10'
+    //implementation "com.terrakok.phonematter:phonematter:1.0@aar"
+
+    //dotted progress bar
+    implementation 'com.agrawalsuneet.androidlibs:dotsloader:1.4'
+    implementation 'com.github.igortrncic.dotted-progress-bar:library:1.0.0'
+
+    //number change animation
+    implementation 'com.robinhood.ticker:ticker:2.0.2'
+
+    //dexter permissions
+    implementation "com.karumi:dexter:5.0.0"
+
+    //qrcode scanner
+    implementation 'com.budiyev.android:code-scanner:2.1.0'
+
+    implementation 'com.lsjwzh:materialloadingprogressbar:0.5.8-RELEASE'
+
+    //hash tag view
+    implementation 'com.github.greenfrvr:hashtag-view:1.3.1'
+
+    // JWT
+    implementation 'io.jsonwebtoken:jjwt:0.7.0'
+    implementation 'commons-codec:commons-codec:1.3'
+
+    //firebase
+    implementation 'com.google.firebase:firebase-core:16.0.1'
+    // Firebase Messaging library for Sending Push Notifications. Add this line.
+    implementation 'com.google.firebase:firebase-messaging:17.3.3'
+
+
+}
+apply plugin: 'com.google.gms.google-services'

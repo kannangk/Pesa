@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<FrameLayout android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/view_foreground"
+    android:visibility="visible"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:alpha="0.07"
+            android:id="@+id/row_div"
+            android:background="@color/line_bg"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_height="match_parent">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/user_lay"
+                android:background="@drawable/swipe_right_half_empty"
+                android:layout_height="wrap_content">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/iv_user_icon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_avatar"
+                    app:civ_border_width="0dp"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    app:civ_border_color="@color/transparent"/>
+
+                <finance.pesa.sdk.utils.RoboticTextview
+                    android:id="@+id/caller_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="10.30"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textSize="@dimen/very_small_text"
+                    android:textColor="@color/name_txt"/>
+
+            </LinearLayout>
+
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_toLeftOf="@+id/time_lay"
+                    android:layout_height="wrap_content">
+
+                    <finance.pesa.sdk.utils.RoboticMediumTextview
+                        android:id="@+id/caller_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:text="UnKnown"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:textSize="@dimen/medium_text"
+                        android:textColor="@color/header_color"/>
+
+
+                    <finance.pesa.sdk.utils.RoboticTextview
+                        android:id="@+id/caller_message"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:text="test"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:maxLines="2"
+                        android:textSize="@dimen/normal_text"
+                        android:textColor="@color/name_txt"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/time_lay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/accept_lay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="5dp"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:id="@+id/accept_contact"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:src="@drawable/ic_accept_contact"/>
+
+                        <finance.pesa.sdk.utils.RoboticTextview
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Accept"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:textSize="@dimen/very_small_text"
+                            android:textColor="@color/phone_light_txt"/>
+                    </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/decline_lay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:padding="5dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/decline_contact"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:padding="5dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:src="@drawable/ic_decline_contact"/>
+
+                    <finance.pesa.sdk.utils.RoboticTextview
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Decline"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="@dimen/very_small_text"
+                        android:textColor="@color/phone_light_txt"/>
+                </LinearLayout>
+
+
+                </LinearLayout>
+
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+    </FrameLayout>
+

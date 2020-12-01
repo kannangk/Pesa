@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_lay"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/tab_height"
+    android:orientation="vertical"
+    android:background="@color/app_green"
+    android:gravity="center">
+    <ImageView
+        android:id="@+id/imageNavigation"
+        android:layout_width="@dimen/tab_icon"
+        android:layout_height="@dimen/tab_icon"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:visibility="visible"
+        android:src="@drawable/ic_dollar_new_select" />
+
+    <finance.pesa.sdk.utils.RoboticTextview
+        android:id="@+id/textNavigation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img_banner_lay"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="2dp"
+        android:text="Small Text"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textSize="@dimen/small_text"/>
+</LinearLayout>
+

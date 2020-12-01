@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="false"
+        android:alpha="125"
+        android:drawable="@drawable/iv_minus_disable" /> ***button_gray is a Drawable image***
+    <item android:state_pressed="true"
+        android:alpha="125"
+        android:drawable="@drawable/iv_minus_disable" />
+    <item android:drawable="@drawable/ic_minus"
+        android:alpha="500"/> ***button_red is a Drawable image***
+</selector>

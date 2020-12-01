@@ -1,0 +1,2 @@
+include ':devapp', ':sdk', ':ViewPagerIndicator', ':swipe-reveal-layout'
+rootProject.name = 'Pesa'

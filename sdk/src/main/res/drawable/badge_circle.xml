@@ -1,0 +1,13 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="20dp"
+    android:height="20dp"
+    android:viewportWidth="256"
+    android:viewportHeight="256">
+    <path
+        android:pathData="M128,128m-128,0a128,128 0,1 1,256 0a128,128 0,1 1,-256 0"
+        android:strokeWidth="1"
+        android:fillColor="@color/tab_select"
+        android:fillType="evenOdd"
+        android:strokeColor="#00000000"/>
+
+</vector>

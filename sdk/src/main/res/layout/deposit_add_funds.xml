@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@color/light_dark"
+    android:padding="20dp"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iv_close"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerVertical="true"
+        android:padding="10dp"
+        android:layout_gravity="end"
+        android:clickable="true"
+        android:gravity="center"
+        android:src="@drawable/ic_close_circle" />
+
+    <finance.pesa.sdk.utils.RoboticMediumTextview
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="@string/pesa_wallet_header"
+        android:paddingTop="10dp"
+        android:layout_gravity="center"
+        android:textColor="@color/light_gray_white"
+        android:textSize="@dimen/medium_text" />
+
+    <finance.pesa.sdk.utils.RoboticTextview
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/balance"
+        android:layout_marginTop="10dp"
+        android:text="@string/country_of_residence"
+        android:textColor="@color/msg_txt"
+        android:textSize="@dimen/small_text" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
+
+        <ImageView
+            android:id="@+id/us_icon"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/circle_white_green_bg"
+            android:src="@drawable/ic_us_flag_circle" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/us_icon"
+            android:paddingRight="10dp"
+            android:layout_toLeftOf="@+id/us_arrow"
+            android:orientation="vertical">
+            <finance.pesa.sdk.utils.RoboticMediumTextview
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:text="@string/united_state"
+                android:paddingLeft="10dp"
+                android:textAllCaps="false"
+                android:layout_centerVertical="true"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@color/header_color"
+                android:textSize="@dimen/normal_text" />
+       <finance.pesa.sdk.utils.RoboticTextview
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/united_state_msg"
+                android:paddingLeft="10dp"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@color/msg_txt"
+                android:textSize="@dimen/very_small_text" />
+        </LinearLayout>
+
+
+
+        <ImageView
+            android:id="@+id/us_arrow"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:tint="@color/header_color"
+            android:src="@drawable/ic_arrow_right" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
+
+        <ImageView
+            android:id="@+id/debit_icon"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/circle_white_green_bg"
+            android:src="@drawable/ic_debit_cart" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/debit_icon"
+            android:paddingRight="10dp"
+            android:layout_toLeftOf="@+id/debit_arrow"
+            android:orientation="vertical">
+            <finance.pesa.sdk.utils.RoboticMediumTextview
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:text="@string/buy_debit_card"
+                android:paddingLeft="10dp"
+                android:textAllCaps="false"
+                android:layout_centerVertical="true"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@color/header_color"
+                android:textSize="@dimen/normal_text" />
+            <finance.pesa.sdk.utils.RoboticTextview
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/debit_msg"
+                android:paddingLeft="10dp"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@color/msg_txt"
+                android:textSize="@dimen/very_small_text" />
+        </LinearLayout>
+
+
+
+        <ImageView
+            android:id="@+id/debit_arrow"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:tint="@color/header_color"
+            android:src="@drawable/ic_arrow_right" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
+
+        <ImageView
+            android:id="@+id/bank_icon"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/circle_white_green_bg"
+            android:src="@drawable/ic_bank" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/bank_icon"
+            android:paddingRight="10dp"
+            android:layout_toLeftOf="@+id/bank_arrow"
+            android:orientation="vertical">
+            <finance.pesa.sdk.utils.RoboticMediumTextview
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:text="@string/buy_bank"
+                android:paddingLeft="10dp"
+                android:textAllCaps="false"
+                android:layout_centerVertical="true"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@color/header_color"
+                android:textSize="@dimen/normal_text" />
+            <finance.pesa.sdk.utils.RoboticTextview
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/bank_msg"
+                android:paddingLeft="10dp"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@color/msg_txt"
+                android:textSize="@dimen/very_small_text" />
+        </LinearLayout>
+
+
+
+        <ImageView
+            android:id="@+id/bank_arrow"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:tint="@color/header_color"
+            android:src="@drawable/ic_arrow_right" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
+
+        <ImageView
+            android:id="@+id/wallet_icon"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/circle_white_green_bg"
+            android:src="@drawable/ic_wallet" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/wallet_icon"
+            android:paddingRight="10dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/wallet_arrow"
+            android:orientation="vertical">
+            <finance.pesa.sdk.utils.RoboticMediumTextview
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:text="@string/send_from_wallet"
+                android:paddingLeft="10dp"
+                android:textAllCaps="false"
+                android:layout_centerVertical="true"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@color/header_color"
+                android:textSize="@dimen/normal_text" />
+
+        </LinearLayout>
+
+
+
+        <ImageView
+            android:id="@+id/wallet_arrow"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:tint="@color/header_color"
+            android:src="@drawable/ic_arrow_right" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

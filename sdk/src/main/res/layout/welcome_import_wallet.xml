@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_black"
+    android:orientation="vertical">
+    <finance.pesa.sdk.utils.RoboticMediumTextview
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_margin="25dp"
+        android:text="@string/welcome_back"
+        android:textColor="@color/header_white"
+        android:textSize="@dimen/extra_large_text" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:paddingBottom="200dp"
+        android:src="@drawable/pesa_circle_logo"
+        android:tint="@color/app_green"/>
+
+    <LinearLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:layout_marginBottom="30dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+
+
+
+            <finance.pesa.sdk.utils.RoboticButton
+                android:id="@+id/import_wallet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginBottom="5dp"
+                android:textAllCaps="false"
+                android:padding="12dp"
+                android:background="@drawable/btn_green_curve_selector"
+                android:text="@string/import_your_wallet"
+                android:textColor="@color/white"
+                android:textSize="@dimen/medium_text" />
+
+
+
+
+        <finance.pesa.sdk.utils.RoboticTextview
+            android:id="@+id/link"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="@string/how_pesa_work"
+            android:textColor="@color/app_green"
+            android:textSize="@dimen/small_text" />
+    </LinearLayout>
+
+</RelativeLayout>

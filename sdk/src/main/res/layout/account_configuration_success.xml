@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/white_black"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:padding="20dp">
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="150dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_tick_circle" />
+    <finance.pesa.sdk.utils.RoboticMediumTextview
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="10dp"
+        android:gravity="center"
+        android:text="@string/great"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:textColor="@color/light_gray_white"
+        android:textSize="@dimen/medium_large_text"
+        android:textStyle="bold" />
+
+    <finance.pesa.sdk.utils.RoboticTextview
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="You’re all set!"
+        android:layout_gravity="center"
+        android:textColor="@color/light_gray_white"
+        android:textSize="@dimen/normal_text" />
+
+
+</LinearLayout>

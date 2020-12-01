@@ -1,0 +1,138 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="finance.pesa.sdk">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:supportsRtl="false"
+        tools:replace="android:supportsRtl">
+
+        <activity
+            android:name=".view.UI.NewMessageActivity"
+            android:label="@string/app_name"
+            android:theme="@style/HoomTheme"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".view.UI.ChatActivity"
+            android:label="@string/app_name"
+            android:theme="@style/HoomTheme"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".view.UI.UnScreenedMessageActivity"
+            android:label="@string/app_name"
+            android:theme="@style/HoomTheme"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".view.UI.ContactDetailsActivity"
+            android:label="@string/app_name"
+            android:theme="@style/HoomTheme"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".view.UI.QRCodeScannerActivity"
+            android:label="@string/app_name"
+            android:theme="@style/HoomTheme"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".view.UI.LockScreen"
+            android:label="@string/app_name"
+            android:theme="@style/HoomTheme"
+            android:windowSoftInputMode="stateHidden"/>
+
+        <activity
+            android:name=".view.UI.TransactionWebViewFragment"
+            android:label="@string/app_name"
+            android:theme="@style/HoomTheme"
+            android:windowSoftInputMode="adjustResize" />
+
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+
+        </provider>
+
+        <service
+            android:name=".utils.FetchDataBackgroungService"
+            android:enabled="true"
+            android:exported="false"
+            android:stopWithTask="false" />
+
+        <service android:name=".MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <!-- Set custom default icon. This is used when no icon is set for incoming notification messages.
+    See README(https://goo.gl/l4GJaQ) for more. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_avatar" />
+        <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" />
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/app_name" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="finance.pesa.sdk" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".MyFirebaseBroadcastReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".utils.PesaNotificationReceiver"
+            android:exported="false" />
+
+    </application>
+
+</manifest>

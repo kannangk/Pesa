@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llaa"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    android:gravity="right"
+    android:orientation="horizontal">
+
+
+    <LinearLayout
+        android:id="@+id/v1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/ic_bubble_sent"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="80dp"
+        android:minWidth="200dp"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+
+        <finance.pesa.sdk.utils.RoboticTextview
+            android:id="@+id/message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:text="test"
+            android:textColor="@color/light_gray_white"
+            android:textSize="@dimen/medium_text" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|bottom"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:gravity="right|bottom"
+            android:orientation="horizontal">
+
+
+            <finance.pesa.sdk.utils.RoboticTextview
+                android:id="@+id/iv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="03:50 am"
+                android:layout_alignParentStart="true"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/light_gray_white"
+                android:alpha="0.4"
+                android:textSize="@dimen/small_text" />
+            <ImageView
+                android:id="@+id/status"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="center_vertical"
+                android:visibility="visible"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_sending"/>
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

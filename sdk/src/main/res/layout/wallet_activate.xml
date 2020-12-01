@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_dark"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="50dp"
+        android:layout_above="@+id/footer"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_splash_logo"
+            android:tint="@color/app_green" />
+
+        <finance.pesa.sdk.utils.RoboticMediumTextview
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:text="@string/activate_wallet"
+            android:textAllCaps="false"
+            android:textColor="@color/black_white"
+            android:textSize="@dimen/large_text" />
+
+        <finance.pesa.sdk.utils.RoboticTextview
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:text="@string/activate_wallet_msg"
+            android:textAllCaps="false"
+            android:textColor="@color/light_gray_white"
+            android:textSize="@dimen/small_text" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:padding="30dp">
+
+        <finance.pesa.sdk.utils.RoboticButton
+            android:id="@+id/btn_deposit_now"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/button_green_selector"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="@string/deposit_now"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/normal_text" />
+
+        <finance.pesa.sdk.utils.RoboticMediumTextview
+            android:id="@+id/btn_deposit_later"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="@string/deposit_later"
+            android:textAllCaps="false"
+            android:textColor="@color/light_gray_white"
+            android:textSize="@dimen/normal_text" />
+    </LinearLayout>
+
+</RelativeLayout>
